@@ -16,13 +16,20 @@ POSTGRES_PORT = os.getenv('POSTGRES_PORT', '5432')
 
 # Crear la URL de conexión a PostgreSQL
 SQLALCHEMY_DATABASE_URL = f"postgresql://{POSTGRES_USER}:{POSTGRES_PASSWORD}@{POSTGRES_HOST}:{POSTGRES_PORT}/{POSTGRES_DB}"
-print(SQLALCHEMY_DATABASE_URL) 
 
 
-# Crear el motor de SQLAlchemy
-engine = create_engine(SQLALCHEMY_DATABASE_URL, echo=True)
 
-# Crear una fábrica de sesiones
-Session = sessionmaker(bind=engine)
+try:
+    # Crear el motor de SQLAlchemy
+    engine = create_engine(SQLALCHEMY_DATABASE_URL, echo=True)
 
-Base = declarative_base()
+    # Crear una fábrica de sesiones
+    Session = sessionmaker(bind=engine)
+
+    # Crear la base de datos
+    Base = declarative_base()
+
+    print("Conexión a la base de datos exitosa")
+
+except Exception as e:
+    print(f"Error al conectar a la base de datos: {e}")

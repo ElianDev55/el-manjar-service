@@ -1,6 +1,6 @@
 from fastapi import FastAPI
 from app.config.database import Session, engine, Base
-from app.models.role import Role
+from app.models.role import Role_Model
 from app.routers.role import role_router
 
 
