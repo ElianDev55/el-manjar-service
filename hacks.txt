@@ -1,0 +1,20 @@
+Start app of fastApi
+
+ uvicorn main:app --reload
+
+
+ Start UnitTesr by Pytest
+
+ pytest  or  pytest -v for view more detail
+
+
+ View Report % code tested on the termiminal
+
+ pytest --cov=app tests/
+
+
+View Repor % code tested on the web  
+
+pytest --cov=app --cov-report html tests/
+
+file:///C:/Users/eliandev/Desktop/el-manjar-service/htmlcov/index.html
