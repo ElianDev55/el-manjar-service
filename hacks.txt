@@ -1,3 +1,21 @@
+Create venv for python
+
+python -m venv venv
+
+Strar venv for python
+
+.\venv\Scripts\activate
+
+Create requirements for python
+
+pip freeze > requirements.txt
+
+
+Intall requirements for python
+
+pip install -r requirements.txt
+
+
 Start app of fastApi
 
  uvicorn main:app --reload
