@@ -22,7 +22,6 @@ class Role_Schema_Create(BaseModel):
         "from_attributes": True 
     }
 
-
 class Role_Schema_Update(BaseModel):
     name: Optional[str] = Field(None, min_length=3, max_length=50)
     state: Optional[bool] = None
