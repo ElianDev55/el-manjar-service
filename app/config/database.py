@@ -11,13 +11,13 @@ load_dotenv()
 POSTGRES_DB = os.getenv('POSTGRES_DB_NAME')
 POSTGRES_USER = os.getenv('POSTGRES_USERNAME')
 POSTGRES_PASSWORD = os.getenv('POSTGRES_PASSWORD')
-POSTGRES_HOST = os.getenv('POSTGRES_HOST', 'localhost')
-POSTGRES_PORT = os.getenv('POSTGRES_PORT', '5432')
+POSTGRES_HOST = os.getenv('POSTGRES_HOST')
+POSTGRES_PORT = os.getenv('POSTGRES_PORT')
 
+print(f"DB: {POSTGRES_DB}, User: {POSTGRES_USER}, Password: {POSTGRES_PASSWORD}, Host: {POSTGRES_HOST}, Port: {POSTGRES_PORT}")
+ 
 # Crear la URL de conexión a PostgreSQL
 SQLALCHEMY_DATABASE_URL = f"postgresql://{POSTGRES_USER}:{POSTGRES_PASSWORD}@{POSTGRES_HOST}:{POSTGRES_PORT}/{POSTGRES_DB}"
-
-
 
 try:
     # Crear el motor de SQLAlchemy
@@ -32,4 +32,4 @@ try:
     print("Conexión a la base de datos exitosa")
 
 except Exception as e:
-    print(f"Error al conectar a la base de datos: {e}")
+    print(f"Error al conectar a la base de datos: {type(e).__name__}: {e}")

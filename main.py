@@ -1,6 +1,5 @@
 from fastapi import FastAPI
-from app.config.database import Session, engine, Base
-from app.models.role import Role_Model
+from app.config.database import engine, Base
 from app.routers.role import role_router
 from app.middleware.error_handler import custom_validation_error_handler
 from fastapi.exceptions import RequestValidationError

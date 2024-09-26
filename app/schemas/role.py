@@ -10,7 +10,7 @@ class Role_Schema_Response(BaseModel):
     updated_at: datetime
     
     model_config = {
-        "from_attributes": True  # Esto reemplaza `orm_mode` en Pydantic v2
+        "from_attributes": True  
     }
 
 class Role_Schema_Create(BaseModel):
@@ -19,9 +19,8 @@ class Role_Schema_Create(BaseModel):
     created_at: Optional[datetime] = datetime.now()
 
     model_config = {
-        "from_attributes": True  # Esto reemplaza `orm_mode` en Pydantic v2
+        "from_attributes": True 
     }
-
 
 class Role_Schema_Update(BaseModel):
     name: Optional[str] = Field(None, min_length=3, max_length=50)

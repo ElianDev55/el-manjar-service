@@ -21,9 +21,9 @@ class RoleService:
         except Exception as e:
             raise ValueError("An error occurred while getting the role") from e
 
-    def service_search_by_name(self, role: Role_Schema_Response) -> Role_Schema_Response:
+    def service_search_by_name(self, role_name: str) -> Role_Schema_Response:
         try:
-            result = self.db.query(Role_Model).filter(Role_Model.name == role.name).first()
+            result = self.db.query(Role_Model).filter(Role_Model.name == role_name).first()
             return result
         except Exception as e:
             raise ValueError("An error occurred while searching the role") from e
@@ -34,7 +34,7 @@ class RoleService:
             self.db.add(new_role)
             self.db.commit()
             self.db.refresh(new_role)
-            service_search_by_name = self.service_search_by_name(role)
+            service_search_by_name = self.service_search_by_name(role.name)
             return service_search_by_name
 
         except Exception as e:
@@ -45,7 +45,6 @@ class RoleService:
         try:
 
             role_dic = role.model_dump(exclude_unset=True)
-            
             self.db.query(Role_Model).filter(Role_Model.id == id).update(role_dic)
             self.db.commit()
             role_updated = self.db.query(Role_Model).filter(Role_Model.id == id).first()
