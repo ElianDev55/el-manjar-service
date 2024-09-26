@@ -1,0 +1,10 @@
+.env.template
+.env
+.gitiignore
+.hacks.txt
+venv
+htmlcov
+.vscode
+__pycache__
+README.md
+.pytest_cache

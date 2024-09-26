@@ -36,3 +36,8 @@ View Repor % code tested on the web
 pytest --cov=app --cov-report html tests/
 
 file:///C:/Users/eliandev/Desktop/el-manjar-service/htmlcov/index.html
+
+
+jira link
+
+https://elmanjar.atlassian.net/jira/core/projects/EM/board

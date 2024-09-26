@@ -3,3 +3,10 @@ omit =
     */tests/*
     */migrations/*
     */app/middleware/error_handler.py
+    */app/config/database.py
+    */**/__init__.py
+
+[report]
+exclude_lines =
+    except SQLAlchemyError
+    except Exception 
